@@ -1,6 +1,7 @@
+import { ReactNode } from "react";
 
 interface Props{
-    children:string;
+    children:ReactNode;
     // color is optional (?) also the value should be from the given values
     color?:'primary'|'secondry'|'danger';
     onClick:()=>void;
