@@ -1,8 +1,15 @@
 // import { MouseEvent } from "react";
 import { useState } from "react";
 
-function ListGroup(){
-    let items = ["New York", "San Francisco", "Tokyo", "London"];
+interface Props{
+    items:string [];
+    heading:string
+}
+
+// Destructuring
+// function ListGroup({items,heading}:Props){
+function ListGroup(props:Props){
+    // let items = ["New York", "San Francisco", "Tokyo", "London"];
     // items = [];
     // event handling
     // let selected_index = -1;
@@ -20,17 +27,17 @@ function ListGroup(){
     //     </> 
     // }
     const getMessage = () => {
-        return items.length===0 ? <p>No item found</p> : null;
+        return props.items.length===0 ? <p>No item found</p> : null;
     }
     // Fragment is a useful feature in React to group multiple elements together without adding extra nodes to the DOM.
     return (
         <>
-            <h1>List</h1>
+            <h1>{props.heading}</h1>
             {getMessage()}
             {/* { items.length === 0 ? <p>{message}</p> : null} */}
             {/* { items.length===0 && <p>No item found</p>} */}
             <ul className="list-group">
-                {items.map((item, index) => (
+                {props.items.map((item, index) => (
                     <li 
                         className={ selectedIndex === index?"list-group-item active":"list-group-item"} 
                         key={item} 
